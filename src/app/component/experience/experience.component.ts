@@ -9,12 +9,12 @@ import {
   Inject,
   PLATFORM_ID,
   signal,
-} from "@angular/core";
-import { CommonModule, isPlatformBrowser } from "@angular/common";
+} from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 type Experience = {
   role: string;
-  company: string;
+  //ompany: string;
   period: string;
   bullets: string[];
 };
@@ -28,18 +28,18 @@ type Meteor = {
 };
 
 @Component({
-  selector: "app-experience",
+  selector: 'app-experience',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: "./experience.component.html",
-  styleUrls: ["./experience.component.css"],
+  templateUrl: './experience.component.html',
+  styleUrls: ['./experience.component.css'],
 })
 export class ExperienceComponent implements OnInit, AfterViewInit {
-  @ViewChild("progress", { static: true })
+  @ViewChild('progress', { static: true })
   progressRef!: ElementRef<HTMLDivElement>;
-  @ViewChildren("card") cardRefs!: QueryList<ElementRef<HTMLElement>>;
-  @ViewChildren("dot") dotRefs!: QueryList<ElementRef<HTMLDivElement>>;
-  @ViewChildren("meteor") meteorRefs!: QueryList<ElementRef<HTMLSpanElement>>;
+  @ViewChildren('card') cardRefs!: QueryList<ElementRef<HTMLElement>>;
+  @ViewChildren('dot') dotRefs!: QueryList<ElementRef<HTMLDivElement>>;
+  @ViewChildren('meteor') meteorRefs!: QueryList<ElementRef<HTMLSpanElement>>;
 
   meteors: Meteor[] = [];
   maxBullets = 8;
@@ -51,74 +51,70 @@ export class ExperienceComponent implements OnInit, AfterViewInit {
 
   experiences: Experience[] = [
     {
-      role: "Data Solution Architect",
-      company: "MediTech",
-      period: "03/2021 – Present",
+      role: 'Senior Data Engineer',
+      //company: "MediTech",
+      period: '03/2021 – Present',
       bullets: [
-        "Led the architecture and deployment of a multi-cloud governance framework across AWS, Azure, and GCP, ensuring compliance with HIPAA, GDPR, and CCPA across 15 business domains.",
-        "Built streaming pipelines with Kafka + Spark, handling 5M+ events/hour at sub-3 second latency for clinical exchanges and financial transactions.",
-        "Designed and optimized Snowflake warehouses by implementing CDC pipelines (Snowpipe, Streams, Tasks) for real-time ingestion, reverse ETL, and partner data sharing (S3, SFTP, Epic EHR, Netsuite), reducing query costs by $1.2M annually.",
-        "Created automated ingestion agents for more than 25 enterprise environments with secure and scalable EMR/PM data integration.",
-        "Integrated ML-driven features into the platform to support personalized content delivery, increasing engagement by 25%.",
-        "Drove Data Mesh adoption across multiple domains, reducing data-access bottlenecks by 40%.",
-        "Authored more than 30 technical design documents to formalize standards, patterns, and architecture guidelines.",
-        "Partnered with business stakeholders to align data strategy with corporate growth objectives, influencing $5M+ in operational efficiencies.",
-        "Piloted GenAI-powered data enrichment workflows, improving customer insights and accelerating analytics delivery by 35%.",
-        "Initiated an enterprise-wide self-service analytics framework, enabling 300+ users to access real-time insights without engineering bottlenecks.",
-        "Orchestrated advanced cost-optimization strategies across multi-cloud environments, cutting infrastructure spend by 22%.",
-        "Deployed GenAI workflows for fraud detection and patient enrichment, boosting insights accuracy by 30%.",
+        'Architected end-to-end multi-cloud data platforms across AWS, Azure, and GCP, processing 10TB+ daily across 15+ domains in regulated healthcare environments.',
+        'Engineered HIPAA-compliant pipelines for EHR, claims, and clinical data, ensuring secure PHI ingestion, processing, and governance.',
+        'Built low-latency streaming pipelines using Kafka and Spark, processing 5M+ events/hour with sub-minute latency.',
+        'Optimized Snowflake data warehouses using CDC pipelines (Snowpipe, Streams, Tasks), reducing annual costs by $1.2M.',
+        'Designed real-time data integration pipelines for clinical and financial systems, improving data freshness and decision-making capabilities.',
+        'Implemented enterprise-grade data security frameworks (encryption, masking, RBAC/ABAC, audit logging) ensuring HIPAA, GDPR, and CCPA compliance.',
+        'Developed FHIR and HL7 aligned data models enabling scalable analytics, reporting, and ML use cases.',
+        'Led Data Mesh adoption across multiple domains, reducing data access bottlenecks and improving ownership.',
+        'Enabled self-service analytics for 300+ users through scalable semantic and data access layers.',
+        'Drove cloud cost optimization strategies, reducing infrastructure spend by over 20% across multi-cloud environments.',
+        'Integrated ML and GenAI-driven workflows to enhance data enrichment, fraud detection, and analytics accuracy.',
+        'Collaborated with stakeholders to align data architecture with business strategy, driving multi-million dollar operational impact.',
       ],
     },
     {
-      role: "Senior Data Engineer Lead",
-      company: "Trigent Software",
-      period: "12/2016 – 02/2021",
+      role: 'Lead Data Engineer',
+      period: '12/2016 – 02/2021',
       bullets: [
-        "Engineered a hybrid cloud and on-prem data platform designed to handle more than 10TB of daily throughput using Spark, Kafka, and Databricks.",
-        "Implemented Data Observability solutions such as Monte Carlo and Great Expectations, reducing data quality issues by 60%.",
-        "Built resilient ETL pipelines using Delta Lake, Airflow, and Python to process over 5TB of data daily.",
-        "Ensured zero data-loss tolerance through fault-tolerant ingestion architecture.",
-        "Mentored six engineers and improved CI/CD deployment success rates from 70% to 98%.",
-        "Migrated over 250 legacy ETL workflows into modular dbt and Airflow pipelines, reducing operational overhead by 70% and saving over $500K annually.",
-        "Modernized real-time streaming architecture and reduced data latency from 10 minutes to under 1 minute with Kafka and Kubernetes.",
-        "Automated deployment processes using Jenkins and GitHub Actions to enable fast and reliable multi-environment releases.",
-        "Collaborated with data science teams to operationalize ML pipelines, reducing model deployment times by 50%.",
-        "Developed a self-service analytics framework that empowered more than 100 business users with real-time data access.",
+        'Designed and implemented hybrid data platforms (cloud + on-prem) processing 10TB+ daily using Spark, Kafka, and Databricks.',
+        'Built scalable ETL and ELT pipelines using Delta Lake, Airflow, and Python for high-volume data processing.',
+        'Implemented data observability frameworks (Monte Carlo, Great Expectations) reducing data quality issues by 60%.',
+        'Modernized streaming architecture using Kafka and Kubernetes, reducing latency from 10 minutes to under 1 minute.',
+        'Migrated 250+ legacy ETL workflows into modular dbt and Airflow pipelines, reducing operational overhead by 70%.',
+        'Ensured fault-tolerant data ingestion architecture with zero data-loss guarantees.',
+        'Automated CI/CD pipelines using Jenkins and GitHub Actions for reliable multi-environment deployments.',
+        'Mentored engineering teams and improved deployment success rates from 70% to 98%.',
+        'Collaborated with data science teams to productionize ML pipelines and reduce deployment cycles by 50%.',
+        'Developed self-service analytics capabilities enabling 100+ users with real-time data access.',
       ],
     },
     {
-      role: "Data Engineer",
-      company: "SumatoSoft",
-      period: "08/2014 – 11/2016",
+      role: 'Data Engineer',
+      period: '08/2014 – 11/2016',
       bullets: [
-        "Managed over 80+ complex ETL workflows using Informatica, SSIS, and Talend across multi-platform data warehouses including Oracle, SQL Server, and Snowflake.",
-        "Designed reusable schema libraries supporting more than 40 datasets across multiple business units.",
-        "Developed monitoring dashboards covering more than 300 batch jobs and increased SLA adherence from 85% to 99%.",
-        "Introduced cost-optimization strategies that lowered cloud spending by 25%.",
-        "Optimized SQL and PL/SQL queries across datasets containing more than 500M rows, reducing ETL runtimes by 40%.",
-        "Created Power BI and Tableau dashboards for compliance, audits, and KPI reporting to support executive decision-making.",
-        "Collaborated with cross-functional teams to define data quality metrics and reduced data-related incidents by 60%.",
-        "Enhanced audit and compliance reporting by automating HIPAA and PHI tracking across healthcare pipelines.",
+        'Managed 80+ enterprise ETL workflows using Informatica, SSIS, and Talend across Oracle, SQL Server, and Snowflake environments.',
+        'Designed and maintained reusable schema frameworks supporting 40+ datasets across business units.',
+        'Developed monitoring and observability dashboards for 300+ jobs, improving SLA adherence from 85% to 99%.',
+        'Optimized SQL and PL/SQL queries on datasets exceeding 500M records, reducing processing time by 40%.',
+        'Implemented cost optimization strategies reducing cloud and infrastructure spend by 25%.',
+        'Built Power BI and Tableau dashboards for compliance, audit, and executive KPI reporting.',
+        'Improved data quality processes and reduced incidents by 60% through validation frameworks.',
+        'Enhanced healthcare compliance reporting by automating HIPAA and PHI tracking workflows.',
       ],
     },
     {
-      role: "ETL & Data Warehouse Specialist",
-      company: "10Pearls",
-      period: "02/2013 – 07/2014",
+      role: 'ETL & Data Warehouse Specialist',
+      period: '02/2013 – 07/2014',
       bullets: [
-        "Constructed ETL workflows using Informatica and SSIS to process more than 500M records daily across retail and telecom data warehouses, while also building Epic Clarity and Caboodle healthcare integrations.",
-        "Designed and implemented dimensional models such as Star Schema and Data Vault to support BI and analytics workloads.",
-        "Improved query performance by 35% through model optimization and indexing strategies.",
-        "Built early prototypes of data contracts that improved upstream and downstream dependency management by 30%.",
-        "Streamlined batch job scheduling processes and eliminated 70% of manual operations in telecom billing.",
-        "Tuned POS reporting queries and reduced runtime from 8 hours to just 1 hour.",
-        "Secured all data pipelines to meet HIPAA, GDPR, and CCPA compliance requirements through IAM, encryption, and data masking, and standardized healthcare ETL pipelines using ICD-10, CPT, LOINC, and SNOMED coding frameworks.",
-        "Transitioned BI workloads from SSRS to Tableau, increasing analyst adoption by 45%.",
-        "Designed KPI dashboards for retail forecasting and churn prediction to provide actionable executive insights.",
+        'Developed large-scale ETL workflows using Informatica and SSIS processing 500M+ records daily across telecom and retail systems.',
+        'Designed dimensional data models (Star Schema, Data Vault) for scalable BI and analytics workloads.',
+        'Improved query performance by 35% through indexing and data model optimization.',
+        'Automated batch processing workflows, reducing manual effort by 70% in telecom billing systems.',
+        'Optimized reporting pipelines, reducing runtime from 8 hours to 1 hour for POS analytics.',
+        'Implemented data governance and security frameworks ensuring compliance with HIPAA, GDPR, and CCPA.',
+        'Standardized healthcare data pipelines using ICD-10, CPT, LOINC, and SNOMED frameworks.',
+        'Migrated legacy reporting systems from SSRS to Tableau, increasing adoption by 45%.',
+        'Developed KPI dashboards for forecasting and churn analysis to support executive decision-making.',
       ],
     },
   ];
-
   constructor(@Inject(PLATFORM_ID) platformId: Object) {
     this.isBrowser = isPlatformBrowser(platformId);
 
@@ -145,25 +141,25 @@ export class ExperienceComponent implements OnInit, AfterViewInit {
   async ngAfterViewInit(): Promise<void> {
     if (!this.isBrowser) return;
 
-    const mod = await import("gsap");
+    const mod = await import('gsap');
     this.gsap = (mod as any).gsap ?? mod;
-    this.ScrollTrigger = (await import("gsap/ScrollTrigger")).ScrollTrigger;
+    this.ScrollTrigger = (await import('gsap/ScrollTrigger')).ScrollTrigger;
     this.gsap.registerPlugin(this.ScrollTrigger);
 
     // Scroll progress along the timeline
     this.gsap.fromTo(
       this.progressRef.nativeElement,
-      { height: "0%" },
+      { height: '0%' },
       {
-        height: "100%",
-        ease: "none",
+        height: '100%',
+        ease: 'none',
         scrollTrigger: {
-          trigger: "#experience",
-          start: "top center+=40",
-          end: "bottom center",
+          trigger: '#experience',
+          start: 'top center+=40',
+          end: 'bottom center',
           scrub: true,
         },
-      }
+      },
     );
 
     // Card reveal
@@ -174,14 +170,14 @@ export class ExperienceComponent implements OnInit, AfterViewInit {
         y: 24,
         scale: 0.985,
         duration: 0.55,
-        ease: "power3.out",
+        ease: 'power3.out',
         stagger: 0.08,
         scrollTrigger: {
-          trigger: "#experience",
-          start: "top 80%",
+          trigger: '#experience',
+          start: 'top 80%',
           once: true,
         },
-      }
+      },
     );
 
     // Pulse dots when each card scrolls in
@@ -193,11 +189,11 @@ export class ExperienceComponent implements OnInit, AfterViewInit {
           scale: 1.1,
           opacity: 1,
           duration: 0.5,
-          ease: "power2.out",
-          scrollTrigger: { trigger: d.nativeElement, start: "top 85%" },
+          ease: 'power2.out',
+          scrollTrigger: { trigger: d.nativeElement, start: 'top 85%' },
           yoyo: true,
           repeat: 1,
-        }
+        },
       );
     });
 
@@ -206,11 +202,11 @@ export class ExperienceComponent implements OnInit, AfterViewInit {
     this.meteors.forEach((m, i) => {
       const el = refs[i]?.nativeElement;
       if (!el) return;
-      el.style.setProperty("--top", `${m.top}%`);
-      el.style.setProperty("--right", `${m.right}%`);
-      el.style.setProperty("--len", `${m.length}px`);
-      el.style.setProperty("--dur", `${m.duration}s`);
-      el.style.setProperty("--delay", `${m.delay}s`);
+      el.style.setProperty('--top', `${m.top}%`);
+      el.style.setProperty('--right', `${m.right}%`);
+      el.style.setProperty('--len', `${m.length}px`);
+      el.style.setProperty('--dur', `${m.duration}s`);
+      el.style.setProperty('--delay', `${m.delay}s`);
     });
   }
 
@@ -244,7 +240,7 @@ export class ExperienceComponent implements OnInit, AfterViewInit {
 
     for (let s of arr) {
       // collapse whitespace
-      let t = s.replace(/\s+/g, " ").trim();
+      let t = s.replace(/\s+/g, ' ').trim();
 
       // if string is exactly A + A (duplicated sentence concatenated)
       const half = Math.floor(t.length / 2);
