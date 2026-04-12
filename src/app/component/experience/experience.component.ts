@@ -51,7 +51,7 @@ export class ExperienceComponent implements OnInit, AfterViewInit {
 
   experiences: Experience[] = [
     {
-      role: 'Senior Data Engineer',
+      role: 'Data Solutions Architect',
       //company: "MediTech",
       period: '03/2021 – Present',
       bullets: [
